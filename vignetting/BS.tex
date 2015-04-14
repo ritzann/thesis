@@ -1,0 +1,19 @@
+\section{Correcting vignetting effect on a PSP system}
+
+Depending on the object, two methods for background subtraction may be performed for correcting vignetting effect.
+
+
+\subsection{Direct Background Subtraction}
+
+For plane surfaces with minimal details (e.g. stone wall) of relative uniform depth, we used the resulting phase map itself to serve as the background. 
+We took the mean of its small blocks (m x n pixels) and applied bicubic interpolation. The block size was carefully chosen so as not to remove the details.
+The interpolated image is then subtracted to the unprocessed phase map. We refer to this process as the Direct Background Subtraction (DBS) method.
+
+
+\subsection{Reference Background Subtraction}
+
+A different approach was used for objects of nonuniform depth/height such as the step pyramid. 
+DBS may only be used for this type if phase unwrapping is done per region, i.e. nonuniform illumination is less apparent if not observable for a subregion of an image; hence, it will be easier to correct it without deforming the details (modified DBS).
+
+
+However, this is a tedious and highly time consuming process especially for large images and thus, we disregarded this method. As a resolution, a white image (unto which PSP is also performed) was used as the reference and its unwrapped phase was subsequently subtracted to that of the object's unwrapped phase and we call this the Reference Background Subtraction (RBS) method.

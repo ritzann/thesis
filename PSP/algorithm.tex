@@ -1,0 +1,40 @@
+\section{Algorithm}
+
+\subsection{Phase Wrapping}
+
+
+\begin{align}
+I_1(x,y)&=I_0(x,y) + I_{mod}(x,y)\cos{(\phi(x,y))}, \nonumber\\
+I_2(x,y)&=I_0(x,y) + I_{mod}(x,y)\cos{(\phi(x,y)+\frac{\pi}{2})}, \nonumber\\
+I_3(x,y)&=I_0(x,y) + I_{mod}(x,y)\cos{(\phi(x,y)+\pi)},\nonumber\\
+I_4(x,y)&=I_0(x,y) + I_{mod}(x,y)\cos{(\phi(x,y)+\frac{3\pi}{2})},
+\label{eq:four_fringes}
+\end{align}  
+where $I_0(x,y)$ is the average background (intensity or) grayscale value\footnote{In image processing, intensity and grayscale value are used interchangeably \cite{Gonzales}.}, $I_{mod}(x,y)$ is the grayscale value of the modulated or distorted pattern, and $I_i$, where $i=1,2,3,4$, is the grayscale value of the $i-$th image. To determine $I_0$, images of the fringe patterns projected onto a reference plane are taken. 
+To determine $I_{mod}$, images of the fringe projected object are taken. 
+The phase difference, which is related to the grayscale values of the images reflecting back from the distortions of the patterns along the surface height, is given by
+\begin{equation}
+\phi(x,y)=\tan^{-1}{\left( \frac{I_4(x,y) - I_2(x,y)}{I_1(x,y)- I_3(x,y)}\right)}
+\label{eq:phase}
+\end{equation}
+To show Eq.~(\ref{eq:phase}), expressions in Eq.~(\ref{eq:four_fringes}) are rewritten as 
+\begin{align}
+I_1(x,y)=I_0(x,y) + I_{mod}(x,y)\cos{(\phi(x,y))}, \nonumber\\
+I_2(x,y)=I_0(x,y) - I_{mod}(x,y)\sin{(\phi(x,y))}, \nonumber\\
+I_3(x,y)=I_0(x,y) - I_{mod}(x,y)\cos{(\phi(x,y))},\nonumber\\
+I_4(x,y)=I_0(x,y) + I_{mod}(x,y)\sin{(\phi(x,y))}.
+\label{eq:four_fringes2}
+\end{align}  
+Subtracting $I_2$ from $I_4$ and $I_3$ from $I_1$ yields
+\begin{align}
+I_4(x,y)-I_2(x,y)&=2I_{mod}\sin{(\phi(x,y))}, \nonumber\\
+I_1(x,y)-I_3(x,y)&=2I_{mod}\cos{(\phi(x,y))}.
+\end{align}  
+Dividing the first expression by the second, we get
+\begin{equation}
+\tan(\phi(x,y))=\frac{I_4-I_2}{I_1-I_3}.
+\label{eq:tan_phase}
+\end{equation}
+Getting the inverse of Eq.~(\ref{eq:tan_phase}) results in Eq.~(\ref{eq:phase}).  The discontinuities of the tangent inverse function at $2\pi$ are removed by adding or subtracting multiples of $2\pi$.  This step is known as phase unwrapping. 
+
+\subsection{Phase Unwrapping}

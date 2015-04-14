@@ -1,0 +1,48 @@
+\chapter{Introduction}
+
+\section{An overview of phase-shift profilometry}
+\subsection{General description}
+
+Three-dimensional (3D) imaging techniques have a wide array of applications in medicine, manufacturing, entertainment, etc \cite{}. 
+Its most common application is in the digital archiving of natural and cultural heritage sites and objects due to its non-invasive and non-contact approach \cite{Simon2013}. 
+
+Several methods for digital 3D reconstruction have been developed for the past years. Among these methods, the structured light illumination technique, particularly phase-shift profilometry (PSP), has proven to be a simpler and cheaper yet promising method for 3D reconstruction of surfaces as compared to laser scanners and other expensive tools used in 3D imaging \cite{Zhang2002, Chrova200x}. 
+
+PSP is a fast-acquisition 3D shape measurement measurement technique which provides high-resolution (pixel-rich) images appropriate for the study of small details in an object \cite{}. 
+A PSP system consists of a projector used for projecting phase-shifted sinusoidal fringes onto the object and a camera for recording the fringe image \cite{}. 
+
+\subsection{Encountered problems in PSP}
+
+Depending on the PSP system, an uncalibrated PSP have several artifacts which are carried out in the 3D reconstruction. 
+In applications in digitization of petroglyphs in which rock art details have a very shallow depth of mostly less than 5 mm, the details are obstructed due to these artifacts, and in worst cases, they can no longer be retrieved from the resulting unwrapped phase maps.
+
+The aforementioned artifacts arise from optical and digital nonlinearities of both the projector and camera such as vignetting effect or nonflatness of field and inherent gamma. 
+Another source of artifact are the projected sinusoidal fringes which which remain in the unwrapped phase. 
+
+Lastly, phase unwrapping method for PSP is a crucial step as it gives the absolute phase for direct conversion to actual height (depth). For typical unwrapping of phase along one dimension, noises may arise in the form of singularities which arise from undersampling of points. 
+
+These artifacts combined greatly affect the quality of 3D reconstruction using PSP.
+Hence, step by step calibration for removing these artifacts needs to be implemented in order to get the most detailed 3D reconstructions. 
+
+\subsection{Related works}
+
+Previous works on calibration of camera-projector pairs deal with them separately \cite{Fernandez2011}, removal of vignetting effect through per-pixel point correction\cite{Yu2004} or only for fixed camera settings \cite{Goldman}, and computing for the nonlinearity or gamma factor itself \cite{Wang2014, Baker2008}, etc. 
+Such works prove to be either limited or complex methods for camera-projector pair calibration depending on the approach.
+
+In the Philippines, as far as we know, PSP has been used twice for applications in the study and archiving of a heritage site and object. 
+
+The first one was in 2010 wherein Vergara used PSP for the archiving of the Angono petroglyphs. 
+In his thesis, he was able to reduce the artifacts introduced by the PSP system using low intensity fringe patterns to avoid the non-linear regions of the camera-projector pair and lessen the singularities by proposing a specified PSP system geometry. 
+
+Sze’s thesis (2012) focused on phase-to-height conversion to study the graving marks of Ticao stone using PSP but was not able to address the source of branch cuts. The novelty of this research relies on the easy-to-implement algorithms for the complete removal of artifacts and branch cuts which utilizes the response curves of the camera-projector pair for non-repetitive calibration, as well as a geometry-independent and mobile PSP set-up which we can easily use for in-situ experiments.
+
+\section{Motivations of the study}
+
+\section{Thesis Structure}
+
+This thesis contains 7 chapters including the Introduction in Chapter 1. An overview of PSP will be discussed in Chapter 2 which include the general algorithms used to extract phases and actual height of the objects and the setup. Chapter 3 introduces the inherent gamma of projectors and camera, how it affects the quality of the unwrapped phase maps, and the processes done to correct which involve curve fitting and interpolation. Chapter 4 proposes different background subtraction techniques for 
+
+In this study, background subtraction with bicubic interpolation and filtering in Fourier domain were implemented in the unwrapped phase maps of a stone wall and a step pyramid to obtain an artifact-free 3D reconstruction.
+
+
+%The purpose of this thesis is two-fold: (1) to deliver an analysis of parallel computing specifically on a self-constructed computer cluster; and, (2) to provide an instruction manual for other researchers so that they can set up their own affordable HPC clusters.

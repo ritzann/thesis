@@ -1,0 +1,92 @@
+%%
+%% main.tex
+%% Formatted NIP thesis conformed with the CS guidelines for the MS
+%% Thesis and PhD Dissertation accepted for year 2005 onwards.
+%% See nip.sty for possible modifications.
+%%
+%% Copyright (C) 2006  Johnrob Y. Bantang: johnrob.bantang@gmail.com
+%%
+%% This tex is free; you can redistribute it and/or modify it under
+%% the terms of the GNU General Public License as published by the
+%% Free Software Foundation version 2. See gpl.txt.
+%%
+%% This tex files are distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+%% General Public License for more details.
+%%
+%% You should have received a copy of the GNU General Public License
+%% along with this program; if not, write to the Free Software
+%% Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+%% 02110-1301, USA.
+%%
+%%
+%%
+
+\documentclass[]{nip} %%use nip class
+%% to add options: phd, ms, bs, applied
+%\usepackage[headsep=1in]{geometry}
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textbf{\nouppercase{\rightmark}}}
+\cfoot{\thepage}
+
+%%packages to be used.
+
+\usepackage[square,numbers,sort&compress]{natbib}
+   %% square-bracketed, numbered, sorted, and compressed citations
+   %% for more info: http://merkel.zoneo.net/Latex/natbib.php
+\usepackage{verbatim} %% for \verbatiminput
+\usepackage{graphicx} %% for the graphics environment
+\usepackage[centertags]{amsmath}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{psfrag}
+\usepackage{newlfont}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage[labelfont=bf]{caption}
+\usepackage[nameinlink, capitalize]{cleveref}
+\captionsetup[figure]{width=0.9\textwidth}
+
+%% Header section
+\title{Phase-shift profilometry calibration for an artifact-free 3D reconstruction} %%required
+\author{Ritz Ann P. Aguilar} %% required
+\email{raguilar@nip.upd.edu.ph}%% appears only when draft version use \draft option.
+\adviser{Maricor Soriano}{Ph.D.}%% required
+\reader{Wala pa}{Ph.D.}%% required
+\secondReader{Wala pa}{Ph.D.}%% optional if with coadviser
+%\coadviser{Another A. Adviser}{Ph.D.}%% replace "\coadviser" with "\secondReader" if no co-adviser
+\director{Roland V. Sarmago}{Ph.D.}%% required
+\dean{Jose Ma. P. Balmaceda}{Ph.D.} %%required
+\gradyear{2015} \gradmonth{June} %%graduation month and year
+\defenseDate{xx April 2015}
+
+%% Preliminary pages' contents input here..
+%\dedication{ \input{dedication.tex} }%% optional, see dedication.tex for sample content.
+%\acknowledgments{ \input{acknowledgments.tex} } %% optional, see acknowledgment.tex for sample content.
+%\abstract{ \input{abstract.tex} } %% see abstract.tex
+%\pacs{71.70.Ej (Spin-orbit coupling), 72.25-b (Spin polarized transport), 73.23-b (Electronic transport in mesoscopic systems)}
+
+%% Main document section
+\begin{document}
+\maketitle %% creates title page, do not remove this line.
+\makePrelim %% creates preliminary pages, do not remove this line.
+\input{1-introduction.tex}
+\input{2-PSP.tex}
+\input{3-gamma.tex}
+\input{4-vignetting.tex}
+\input{5-FFT.tex}
+\input{6-3Dmodels.tex}
+\input{7-summary.tex}
+
+%\appendix
+%\input{appendix.tex}
+
+\bibliographystyle{osa}
+\bibliography{biblio} %% see file: "biblio.bib"
+
+\end{document}
+%%end of main.tex
