@@ -14,15 +14,19 @@ A PSP system consists of a projector used for projecting phase-shifted sinusoida
 \subsection{Encountered problems in PSP}
 
 Depending on the PSP system, an uncalibrated PSP have several artifacts which are carried out in the 3D reconstruction. 
-In applications in digitization of petroglyphs in which rock art details have a very shallow depth of mostly less than 5 mm, the details are obstructed due to these artifacts, and in worst cases, they can no longer be retrieved from the resulting unwrapped phase maps.
+In applications in digitization of petroglyphs in which rock art details have a very shallow depth of mostly less than 5 mm, the details are obstructed due to these artifacts, and in worst cases, they can no longer be retrieved from the unwrapped phase maps.
 
 The aforementioned artifacts arise from optical and digital nonlinearities of both the projector and camera such as vignetting effect or nonflatness of field and inherent gamma. 
-Another source of artifact are the projected sinusoidal fringes which which remain in the unwrapped phase. 
+As a consequence, phase value at a particular image point may change resulting to a wrong depth or height perception of
+the object upon phase retrieval.
 
-Lastly, phase unwrapping method for PSP is a crucial step as it gives the absolute phase for direct conversion to actual height (depth). For typical unwrapping of phase along one dimension, noises may arise in the form of singularities which arise from undersampling of points. 
+Another source of artifact which need to be addressed are the projected sinusoidal fringes which are left behind in the unwrapped phase and causes reduction of observed details.
+
+Lastly, phase unwrapping method for PSP is a crucial step as it gives the absolute phase for direct conversion to actual height (depth). For typical unwrapping of phase along one dimension, discontinuities may occur causing singularities \footnote{Singularities are points in 2D and lines in 3D which introduce sudden jumps in the phase map after phase unwrapping} to form in the phase maps.
+Efficient phase unwrapping which operates in 2D must then be used so as not to generate these discontinuties. Quality-guided path unwrapping algorithm following a noncontinuos path by Herraez et al was used 
 
 These artifacts combined greatly affect the quality of 3D reconstruction using PSP.
-Hence, step by step calibration for removing these artifacts needs to be implemented in order to get the most detailed 3D reconstructions. 
+Hence, step-by-step calibration for removing these artifacts needs to be implemented in order to get the most detailed 3D reconstructions. 
 
 \subsection{Related works}
 
@@ -38,11 +42,19 @@ Sze’s thesis (2012) focused on phase-to-height conversion to study the graving
 
 \section{Motivations of the study}
 
+These 
+
 \section{Thesis Structure}
 
-This thesis contains 7 chapters including the Introduction in Chapter 1. An overview of PSP will be discussed in Chapter 2 which include the general algorithms used to extract phases and actual height of the objects and the setup. Chapter 3 introduces the inherent gamma of projectors and camera, how it affects the quality of the unwrapped phase maps, and the processes done to correct which involve curve fitting and interpolation. Chapter 4 proposes different background subtraction techniques for 
+This thesis contains 7 chapters including the Introduction. PSP will be discussed in Chapter 2 and will show the schematic setup of a PSP system and the general algorithms used to extract the phase and actual height of the target object. 
 
-In this study, background subtraction with bicubic interpolation and filtering in Fourier domain were implemented in the unwrapped phase maps of a stone wall and a step pyramid to obtain an artifact-free 3D reconstruction.
+Chapter 3 introduces the inherent gamma of projectors and camera, how it affects the quality of the unwrapped phase maps, and the processes done to correct which involve curve fitting and interpolation. 
+Chapter 4 proposes different background subtraction techniques for the removal of vignetting effect in the unwrapped phase maps. 
+
+Chapter 5 discusses the concept of Fast Fourier Transform (FFT) filtering and how it is applied to the resulting phase maps to remove the sinudoidal fringe artifacts.
+Chapter 6 shows the results of using the calibrated PSP method 
+
+The summary of this thesis and recommendations for future work are presented in Chapter 7.
 
 
 %The purpose of this thesis is two-fold: (1) to deliver an analysis of parallel computing specifically on a self-constructed computer cluster; and, (2) to provide an instruction manual for other researchers so that they can set up their own affordable HPC clusters.
