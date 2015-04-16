@@ -1,5 +1,4 @@
 \chapter{Introduction}
-
 \section{An overview of phase-shift profilometry}
 \subsection{General description}
 
@@ -23,36 +22,44 @@ the object upon phase retrieval.
 Another source of artifact which need to be addressed are the projected sinusoidal fringes which are left behind in the unwrapped phase and causes reduction of observed details.
 
 Lastly, phase unwrapping method for PSP is a crucial step as it gives the absolute phase for direct conversion to actual height (depth). For typical unwrapping of phase along one dimension, discontinuities may occur causing singularities \footnote{Singularities are points in 2D and lines in 3D which introduce sudden jumps in the phase map after phase unwrapping} to form in the phase maps.
-Efficient phase unwrapping which operates in 2D must then be used so as not to generate these discontinuties. Quality-guided path unwrapping algorithm following a noncontinuos path by Herraez et al was used 
+Efficient phase unwrapping which operates in 2D must then be used so as not to generate these discontinuties. Quality-guided path unwrapping algorithm following a noncontinuous path which by Herraez et al was used for phase unwrapping instead of the typical unwrapping in 1D.
 
 These artifacts combined greatly affect the quality of 3D reconstruction using PSP.
 Hence, step-by-step calibration for removing these artifacts needs to be implemented in order to get the most detailed 3D reconstructions. 
 
 \subsection{Related works}
 
-Previous works on calibration of camera-projector pairs deal with them separately \cite{Fernandez2011}, removal of vignetting effect through per-pixel point correction\cite{Yu2004} or only for fixed camera settings \cite{Goldman}, and computing for the nonlinearity or gamma factor itself \cite{Wang2014, Baker2008}, etc. 
-Such works prove to be either limited or complex methods for camera-projector pair calibration depending on the approach.
+Previous works on camera-projector pairs deal with their calibrations separately \cite{Fernandez2011}, removal of vignetting effect through per-pixel point correction \cite{Yu2004} or only for fixed camera settings \cite{Goldman}, and computing for the nonlinearity or gamma factor itself \cite{Wang2014, Baker2008}, etc. 
+These methods prove to be either limited or complex for camera-projector pair calibration depending on the approach.
 
 In the Philippines, as far as we know, PSP has been used twice for applications in the study and archiving of a heritage site and object. 
-
 The first one was in 2010 wherein Vergara used PSP for the archiving of the Angono petroglyphs. 
-In his thesis, he was able to reduce the artifacts introduced by the PSP system using low intensity fringe patterns to avoid the non-linear regions of the camera-projector pair and lessen the singularities by proposing a specified PSP system geometry. 
+In his thesis, he was able to reduce the artifacts introduced by the PSP system using low intensity fringe patterns to avoid the non-linear regions of the camera-projector pair and by setting the camera aperture to the smallest possible size to reduce vignetting effect. 
+He was also able to lessen the singularities by proposing a specified PSP system geometry but was not able to completely remove them. 
 
-Sze’s thesis (2012) focused on phase-to-height conversion to study the graving marks of Ticao stone using PSP but was not able to address the source of branch cuts. The novelty of this research relies on the easy-to-implement algorithms for the complete removal of artifacts and branch cuts which utilizes the response curves of the camera-projector pair for non-repetitive calibration, as well as a geometry-independent and mobile PSP set-up which we can easily use for in-situ experiments.
+The second application was in the study of the graving marks of Ticao stone in 2012 in which Sze focused on phase-to-height conversion using Du and Wang's algorithm but was not able to address the source of singularities \cite{Sze2012}.
 
-\section{Motivations of the study}
+The novelty of this research relies on the easy-to-implement algorithms for the complete removal of artifacts and singularities which utilizes the response curves of the camera-projector pair for non-repetitive calibration as well as independent and geometry-independent PSP setup which need not have fixed settings.
 
-These 
+%as well as a geometry-independent and mobile PSP set-up which we can easily use for in-situ experiments.
+
+\section{Motivation of the study}
+
+The Angono petroglyphs dated 3000 B.C. is one of the country's oldest natural heritage sites. There have been several attempts of archiving all the 127 characters in it through different methods. Jesus Peralta (year) have drawn stencils of the characters by tracing them manually \cite{Peralta}. 
+Vergara was only able to archive a few of the characters in the Angono petroglyps.
+In a most recent work, laser scanning of the site was done by (insert team) in (year) but the details are not pixel-rich and the characters are not 
+
+This thesis is geared towards the archiving of all the Angono petroglyph characters including the latest graffiti in a pixel-rich and artifact-free digital 3D reconstruction such that we can study the individual characters thoroughly without the need to touch them. The digital 3D data will be made available to the public through open source 3D viewers such that the national agencies may use it for future restoration and the like.
 
 \section{Thesis Structure}
 
-This thesis contains 7 chapters including the Introduction. PSP will be discussed in Chapter 2 and will show the schematic setup of a PSP system and the general algorithms used to extract the phase and actual height of the target object. 
+This thesis contains 7 chapters including the Introduction. PSP will be discussed in Chapter 2 and will show the schematic setup of a PSP system and the general algorithms used to extract the phase and actual height of a target object. 
 
-Chapter 3 introduces the inherent gamma of projectors and camera, how it affects the quality of the unwrapped phase maps, and the processes done to correct which involve curve fitting and interpolation. 
-Chapter 4 proposes different background subtraction techniques for the removal of vignetting effect in the unwrapped phase maps. 
+Chapter 3 introduces the inherent gamma of projectors and camera, how it affects the quality of the 3D reconstruction, and the processes done to correct it though curve fitting and interpolation. 
+Chapter 4 proposes different background subtraction techniques for the removal of all vignetting effects in the unwrapped phase maps. 
 
 Chapter 5 discusses the concept of Fast Fourier Transform (FFT) filtering and how it is applied to the resulting phase maps to remove the sinudoidal fringe artifacts.
-Chapter 6 shows the results of using the calibrated PSP method 
+Chapter 6 shows the results of the calibrated PSP method on 1:1 scale model of some characters in the Angono petroglyphs engraved in styrofoam boards and some additional test objects. 
 
 The summary of this thesis and recommendations for future work are presented in Chapter 7.
 

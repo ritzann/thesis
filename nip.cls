@@ -134,7 +134,7 @@
       {\Large{Draft Copy: \today}}\\\vspace{24pt}
     \fi
     {\baselineskip=24pt
-       \bf\uppercase\expandafter{\@title}
+       \bf\LARGE\uppercase\expandafter{\@title}
     \par}%
     \vfill
     by
@@ -227,7 +227,7 @@
    This is to certify that this thesis entitled,
    ``\expandafter{\@title}'' and submitted by
    \expandafter{\@author} to fulfill part of the requirements for
-   the degree of Doctor of Philosophy in Physics was successfully
+   the degree of Bachelor of Science in Physics was successfully
    defended and approved on \expandafter{\@defensedate}.
    \vspace{8pt}
    \begin{center}
@@ -257,7 +257,7 @@
    \vfill
    \par The National Institute of Physics endorses acceptance of
    this thesis as partial fulfillment of the
-   requirements for the degree of Doctor of Philosophy in
+   requirements for the degree of Bachelor of Science in
    Physics.\\
    \begin{flushright}
    \parbox[t]{0.45\textwidth}{\begin{flushleft}
@@ -270,7 +270,7 @@
    \vfill
    \par The thesis is hereby officially accepted as
    partial fulfillment of the requirements for the degree of
-   Doctor of Philosophy in Physics.\\
+   Bachelor of Science in Physics.\\
    \begin{flushright}
    \parbox[t]{0.45\textwidth}{\begin{flushleft}
       {\small \uppercase\expandafter{\dean@name},
@@ -302,6 +302,9 @@
    \if@withabstract \abstractp \fi%
    \newpage
    \tableofcontents
+\cleardoublepage   
+\addcontentsline{toc}{chapter}{List of Figures}
+   \listoffigures
    \newpage %% forces a new pagination and style.
    \pagenumbering{arabic}
    %% going back to same spacing..
@@ -759,7 +762,7 @@
 \newcommand\contentsname{Table of Contents}
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}
-\newcommand\bibname{Bibliography}
+\newcommand\bibname{References}
 \newcommand\indexname{Index}
 \newcommand\figurename{Figure}
 \newcommand\tablename{Table}
