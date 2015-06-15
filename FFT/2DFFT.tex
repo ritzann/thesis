@@ -1,7 +1,13 @@
-\section{Two-Dimensional Discrete Fourier Transform}
+\section{Two-Dimensional Fourier Transform}
 
 %Another source of artifact which needed to be resolved are the fringes which remain in the unwrapped phase. 
 %A method that can remove this is filtering of the unwanted frequencies in the Fourier domain. 
 
-The Fourier Transform (FT) of a complex signal is the spatial frequency distribution of that signal and can be expressed as the sum of sines and cosines of varying amplitudes \cite{Wahl1987}.
+The Fourier Transform (FT) of a complex signal is the spatial frequency distribution of that signal. The FT of an image f(x,y) is given by
 
+\begin{equation}
+F(f_x, f_y) = \iint f(x,y) \exp(-i2\pi(f_xx+f_yy)) dx dy
+\end{equation}
+where $f_x$ and $f_y$ are the spatial frequencies along x and y, respectively  \cite{Wahl1987}. Calculation for the 2D FT has a very high computational time that an algorithm exploiting its separability and symmetry was introduced. This fast and efficient algorithm is the Fast Fourier Transform (FFT) and it substantially reduces computational time.
+
+From the FFT of an image, observations of the repetitive patterns and  artifacts in the image can be easily done. In some images, these repetitive patterns and artifacts maybe unwanted noise that needed to be remove. However, removing these artifacts may be impossible to do in the image itself without affecting the other details. The FFT then allows us to analyze and process the image in the Fourier domain by removing or enhancing only the desired frequencies \cite{Cad2006}.

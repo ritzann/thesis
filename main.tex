@@ -32,7 +32,8 @@
 
 %%packages to be used.
 
-\usepackage[square,numbers,sort&compress]{natbib}
+%\usepackage[square,numbers,sort&compress]{natbib}
+\usepackage[backend=bibtex,firstinits,style=numeric-comp,sorting=none, doi=false, isbn=false]{biblatex} \addbibresource{library}
    %% square-bracketed, numbered, sorted, and compressed citations
    %% for more info: http://merkel.zoneo.net/Latex/natbib.php
 \usepackage{verbatim} %% for \verbatiminput
@@ -50,29 +51,103 @@
 \usepackage[nameinlink, capitalize]{cleveref}
 \captionsetup[figure]{width=0.9\textwidth}
 
+
+\def\table{\def\figurename{Table}\figure}
+\let\endtable\endfigure 
+\renewcommand\listfigurename{List of Figures and Tables}
+
+
+%%for appendix
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{1,1,1}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=2,    
+	%   rulecolor=,
+	language=Python,
+	basicstyle=\scriptsize,
+	upquote=true,
+	columns=fixed,
+	showstringspaces=false,
+	extendedchars=false,
+	breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	frame=single,
+	numbers=left,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	identifierstyle=\ttfamily,
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.026,0.112,0.095},
+	stringstyle=\color[rgb]{0.627,0.126,0.941},
+	numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+	%        \lstdefinestyle{C++}{language=C++,style=numbers}’.
+}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=2,
+	language=Python,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\footnotesize,
+	%  identifierstyle=\color{magenta},
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color{green},
+	stringstyle=\color{red}
+}
+
+
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\textbf{\nouppercase{\rightmark}}}
+\cfoot{\thepage}
+
+\makeatletter
+\def\ignorecitefornumbering#1{%
+	\begingroup
+	\@fileswfalse
+	#1%                     % do \cite comand
+	\endgroup
+}
+\makeatother
+
 %% Header section
 \title{Phase-shift profilometry calibration for an artifact-free 3D reconstruction} %%required
-\author{Ritz Ann P. Aguilar} %% required
+\author{Ritz Ann Paccarangan Aguilar} %% required
 \email{raguilar@nip.upd.edu.ph}%% appears only when draft version use \draft option.
 \adviser{Maricor Soriano}{Ph.D.}%% required
-\reader{Wala pa}{Ph.D.}%% required
-\secondReader{Wala pa}{Ph.D.}%% optional if with coadviser
+\reader{Lean Dasallas}{M.Sc.}%% required
+\secondReader{Dianne Ca\~neso}{M.Sc.}%% optional if with coadviser
 %\coadviser{Another A. Adviser}{Ph.D.}%% replace "\coadviser" with "\secondReader" if no co-adviser
 \director{Roland V. Sarmago}{Ph.D.}%% required
 \dean{Jose Ma. P. Balmaceda}{Ph.D.} %%required
 \gradyear{2015} \gradmonth{June} %%graduation month and year
-\defenseDate{xx April 2015}
+\defenseDate{21 May 2015}
 
 %% Preliminary pages' contents input here..
 %\dedication{ \input{dedication.tex} }%% optional, see dedication.tex for sample content.
-%\acknowledgments{ \input{acknowledgments.tex} } %% optional, see acknowledgment.tex for sample content.
-%\abstract{ \input{abstract.tex} } %% see abstract.tex
+\acknowledgments{ \input{acknowledgments.tex} } %% optional, see acknowledgment.tex for sample content.
+\abstract{ \input{abstract.tex} } %% see abstract.tex
+\pacs{07.05.Pj, Image processing algorithms; 42.30.Rx, Phase retrieval (optics); 33.20.Ea, Fourier transform spectra}
 %\pacs{71.70.Ej (Spin-orbit coupling), 72.25-b (Spin polarized transport), 73.23-b (Electronic transport in mesoscopic systems)}
 
 %% Main document section
 \begin{document}
 \maketitle %% creates title page, do not remove this line.
 \makePrelim %% creates preliminary pages, do not remove this line.
+\pagestyle{fancy}
+\setlength{\headsep}{20pt}
 \input{1-introduction.tex}
 \input{2-PSP.tex}
 \input{3-gamma.tex}
@@ -81,11 +156,13 @@
 \input{6-3Dmodels.tex}
 \input{7-summary.tex}
 
-%\appendix
-%\input{appendix.tex}
+\appendix
+\input{appendix-a.tex}
+\input{appendix-b.tex}
 
-\bibliographystyle{osa}
-\bibliography{biblio} %% see file: "biblio.bib"
-
+%\bibliographystyle{osa}
+%\bibliography{library} %% see file: "biblio.bib"
+\setlength{\bibitemsep}{\baselineskip}
+\printbibliography
 \end{document}
 %%end of main.tex

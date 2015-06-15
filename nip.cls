@@ -52,8 +52,8 @@
 
 %% setting size of paper to be used..
 %% So far, CS has set a standard of US letter
-\setlength\paperheight {11in}%
-\setlength\paperwidth  {8.5in}%
+\setlength\paperheight {11.69in}%
+\setlength\paperwidth  {8.27in}%
 \setlength\textwidth   {6in}%
 
 \if@compatibility
@@ -124,24 +124,31 @@
     \let\sectionmark\@gobble
     }
   \newcommand\maketitle{\begin{titlepage}%
-  \let\footnotesize\small
-  \let\footnoterule\relax
-  \let \footnote \thanks
-  \vspace{1in}
-  \begin{center}%
-    \if@draft
-      \topmargin 0in \headsep 0in
-      {\Large{Draft Copy: \today}}\\\vspace{24pt}
-    \fi
-    {\baselineskip=24pt
-       \bf\LARGE\uppercase\expandafter{\@title}
-    \par}%
-    \vfill
-    by
-    \vfill
-    {\bf\uppercase\expandafter{\@author}\par}%
-    \if@draft {\it\@email} \fi
-    \vfill
+  		\let\footnotesize\small
+  		\let\footnoterule\relax
+  		\let \footnote \thanks
+  		\begin{center}
+  			\includegraphics[width=0.9in]{figures/updlogo.png} \\
+  			%%%%%
+  			\vspace{0.12in}
+  			%%%%%
+  			\textsc{\uppercase{University of the Philippines} }
+  		\end{center}
+  		\vspace{0.10in}
+  		\begin{center}%
+  			\if@draft
+  			\topmargin 0.5in \headsep 0in
+  			{\Large{Draft Copy: \today}}\\\vspace{24pt}
+  			\fi
+  			{\baselineskip=24pt
+  				\bf\uppercase\expandafter{\@title}
+  				\par}%
+  			\vfill
+  			by
+  			\vfill
+  			{\bf\uppercase\expandafter{\@author}\par}%
+  			\if@draft {\it\@email} \fi
+  			\vfill
     {\baselineskip=24pt
        An Undergraduate Thesis Submitted to the\\
        National Institute of Physics\\
@@ -149,9 +156,9 @@
        University of the Philippines\\
        Diliman, Quezon City\\
        \vfill
-       As Partial Fulfillment of the Requirements\\
+       In Partial Fulfillment of the Requirements\\
        for the Degree of\\
-       Bachelor of Science in Physics
+       Bachelor of Science in Applied Physics
        \vfill
        \expandafter{\@gradmonth} \expandafter{\@gradyear}
     \par}%
@@ -227,37 +234,44 @@
    This is to certify that this thesis entitled,
    ``\expandafter{\@title}'' and submitted by
    \expandafter{\@author} to fulfill part of the requirements for
-   the degree of Bachelor of Science in Physics was successfully
+   the degree of Bachelor of Science in Applied Physics was successfully
    defended and approved on \expandafter{\@defensedate}.
    \vspace{8pt}
-   \begin{center}
-      \parbox[t]{0.45\textwidth}{\begin{flushleft}%
-      {\small \uppercase\expandafter{\adviser@name},
-      \expandafter{\adviser@degree} }\\
-      Thesis Adviser
-      \end{flushleft} }\\%%parbox
-   \end{center}
-   \parbox[t]{0.45\textwidth}{\begin{flushleft}
-      {\small \uppercase\expandafter{\reader@name},
-      \expandafter{\reader@degree} }\\
-      Thesis Reader
-   \end{flushleft}}
-   \hfill
-   \parbox[t]{0.45\textwidth}{\begin{flushleft}
-      \if@coadviser
-         {\small \uppercase\expandafter{\coadviser@name},
-         \expandafter{\coadviser@degree} }\\
-      \else
-         {\small \uppercase\expandafter{\readertwo@name},
-         \expandafter{\readertwo@degree} }\\
-      \fi
-      Thesis
-      \if@coadviser Co-Adviser \else Reader \fi
-   \end{flushleft}}\\
+   \begin{flushright}
+   	\parbox[t]{0.45\textwidth}{\begin{flushleft}
+   			{\small \uppercase\expandafter{\adviser@name},
+      				\expandafter{\adviser@degree}}\\
+      			Thesis Adviser\\
+      			National Institute of Physics
+      			\end{flushleft}}
+    \end{flushright}
+   
+%   \parbox[t]{0.45\textwidth}{\begin{flushleft}%
+%      {\small \uppercase\expandafter{\adviser@name},
+%      \expandafter{\adviser@degree} }\\
+%      Thesis Adviser
+%      \end{flushleft} }\\%%parbox
+%   \parbox[t]{0.45\textwidth}{\begin{flushleft}
+%      {\small \uppercase\expandafter{\reader@name},
+%      \expandafter{\reader@degree} }\\
+%      Thesis Reader
+%   \end{flushleft}}
+%   \hfill
+%   \parbox[t]{0.45\textwidth}{\begin{flushleft}
+%      \if@coadviser
+%         {\small \uppercase\expandafter{\coadviser@name},
+%         \expandafter{\coadviser@degree} }\\
+%      \else
+%         {\small \uppercase\expandafter{\readertwo@name},
+%         \expandafter{\readertwo@degree} }\\
+%      \fi
+%      Thesis
+%      \if@coadviser Co-Adviser \else Reader \fi
+%   \end{flushleft}}\\
    \vfill
    \par The National Institute of Physics endorses acceptance of
-   this thesis as partial fulfillment of the
-   requirements for the degree of Bachelor of Science in
+   this thesis in partial fulfillment of the
+   requirements for the degree of Bachelor of Science in Applied
    Physics.\\
    \begin{flushright}
    \parbox[t]{0.45\textwidth}{\begin{flushleft}
@@ -268,9 +282,9 @@
    \end{flushleft}}
    \end{flushright}
    \vfill
-   \par The thesis is hereby officially accepted as
+   \par This undergraduate thesis is hereby officially accepted in
    partial fulfillment of the requirements for the degree of
-   Bachelor of Science in Physics.\\
+   Bachelor of Science in Applied Physics.\\
    \begin{flushright}
    \parbox[t]{0.45\textwidth}{\begin{flushleft}
       {\small \uppercase\expandafter{\dean@name},
@@ -303,7 +317,7 @@
    \newpage
    \tableofcontents
 \cleardoublepage   
-\addcontentsline{toc}{chapter}{List of Figures}
+\addcontentsline{toc}{chapter}{List of Figures and Tables}
    \listoffigures
    \newpage %% forces a new pagination and style.
    \pagenumbering{arabic}

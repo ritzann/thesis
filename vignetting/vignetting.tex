@@ -1,33 +1,36 @@
-\section{Vignetting effect of digital imaging systems}
+\section{Vignetting Effect of Digital Imaging Systems}
 
-Vignetting effect refers to an apparent nonuniform illumination of light, seen as a gradual fading of image near its periphery \cite{Hecht2007}. 
-Although this is the common definition of vignetting which is symmetric in nature \footnote{vignetting is most often referred to as \textit{radial falloff}}, we will refer to all forms of nonuniform illumination of light in digital imaging systems as vignetting in this paper.
+Vignetting effect refers to an apparent nonuniform illumination of light, seen as a gradual fading of image near its periphery \cite{Zheng2008}. 
+Although this is the common definition of vignetting which is symmetric in nature\footnote{vignetting is most often referred to as \textit{radial falloff}}, we will refer to all forms of	 nonuniform illumination of light in digital imaging systems as vignetting in this paper.
 
 Projectors and cameras have their own vignetting properties. 
-For cameras, depending on the set aperture size, light is blocked at the opening which causes the vignetting effect \cite{Hecht2007}. 
+For cameras, depending on the set aperture size, light is blocked at the opening which causes the vignetting effect \cite{Hecht2002}. 
 For projectors, it may depend upon the position and orientation of the projector and even the reflectance property of the screen \cite{Juang2007}. 
 
-Previous works on correction of vignetting effect required using fixed zoom settings for both camera-projector pair \cite{Juang2007}, or fixed lighting conditions \cite{}, dealing with them individually by getting their intrinsic and extrinsic parameters \cite{Goldman2010}. 
-In Vergara's thesis \cite{Vergara2010}, vignetting of the camera was reduced by setting the camera aperture to the lowest possible size. Although this proved to be a good solution due to its simplicity, it is only limited to the camera and does not extend to the correction of vignetting of the projector and/or the whole PSP system.
+Previous works on correction of vignetting effect required using fixed zoom settings for both camera-projector pair \cite{Juang2007} or dealing with them individually by getting their intrinsic and extrinsic parameters \cite{Goldman2010}. 
+In Vergara's thesis \cite{Vergara2010}, vignetting of the camera was reduced by setting the camera aperture to the lowest possible size. Although this was proven to be a good solution due to its simplicity, it is only limited to the camera and does not extend to the correction of vignetting of the projector and/or the whole PSP system.
 
-The placement of both projector and camera relative to the object surface in a PSP setup also causes vignetting effect resulting to a wrong depth or height perception of the object upon phase retrieval. The relative placement of the equipment may change from one experiment to another. On-site experiments will also have varying lighting conditions. Thus, repeated calibration may prove to be inefficient and the solutions above may not be appropriate to use. 
+The placement of both projector and camera relative to the object surface in a PSP setup also causes vignetting effect resulting to a wrong depth or height perception of the object upon phase retrieval. The relative placement of the equipment may change from one experiment to another. 
+%On-site experiments will also have varying lighting conditions.
+Thus, repeated calibration may prove to be inefficient and the solutions above may not be appropriate to use. 
 
-Vignetting effect removal independent of the geometry of the setup, the properties (intrinsic/extrinsic)  and settings of the camera and projector, and the the lighting condition is proposed. It 
+Vignetting effect removal independent of the geometry of the setup and the properties (intrinsic/extrinsic) or settings of the camera and projector is proposed. 
 
-\section{Illustrations of vignetting effect using a flat white image}
-To measure the vignetting effect of the camera-projector pair used in the PSP, a flat white image was captured projected and captured with different camera aperture settings, starting at f/4 to the optimal camera aperture size setting available (f/22). 
+\section{Illustrations of Vignetting Effect using a Flat White Image}
+To measure the vignetting effect of the camera-projector pair used in the PSP, a flat white image was captured projected and captured with different camera aperture settings, starting at f/5.6 to the optimal camera aperture size setting available (f/22). 
 
 %Thus, with such large aperture size, background subtraction was further implemented to completely remove the vignetting effect. 
 %We smoothened first the white background image by taking the mean of its small blocks (4x4 pixels) and the smoothened image is then divided to the original one.
 
 \captionsetup[figure]{width=5in}
 \begin{figure}[h!]
-%\centering{\includegraphics[width=4in]{mesh.jpg}}
-\caption{Mesh intensity profiles of the flat white image captured at different camera aperture settings: output image at (a) f/4 (b) f/8 (c) f/12 (d) f/16 (e) f/22.}
+\centering{\includegraphics[width=0.9\textwidth]{figures/mesh1.jpg}}
+\caption[Mesh intensity profiles of the flat white image]{Mesh intensity profiles of the flat white image captured at different camera aperture settings. Note that as camera aperture size decreases, vignetting effect decreases as well.}
+	%: output image at (a) f/5.6 (b) f/13 (c) f/18 (d) f/22.}
 \label{fig:meshwhite}
 \end{figure}
 
-Mesh intensity profiles of the flat white images were obtained and plotted in Figure \ref{fig:meshwhite}. The mesh plots show that vignetting effect becomes more visible with increasing camera aperture size \cite{Juang2007}. 
+Mesh intensity profiles of the flat white images were obtained and plotted in Figure \ref{fig:meshwhite}. As camera aperture size decreases, the field becomes flatter which is also seen in the decreasing number of colors in one mesh. The mesh plots show that vignetting effect becomes less visible with decreasing camera aperture size \cite{Juang2007}.
 
 
 %and the processes done to remove the vignetting effect. 
